@@ -1,5 +1,4 @@
- <style>
-    /* Mobile default: hide nav */
+
 .nav-links {
   display: none;
   flex-direction: column;
@@ -10,13 +9,10 @@
   width: 100%;
   padding: 1rem;
 }
-
-/* Show nav when active */
 .nav-links.active {
   display: flex;
 }
 
-/* For larger screens, always show nav */
 @media (min-width: 768px) {
   .menu-toggle {
     display: none;
@@ -329,4 +325,4 @@
   margin-top: 1.5rem;
   font-size: 0.9rem;
 }
-    </style>
+ 
