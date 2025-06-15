@@ -24,6 +24,14 @@
   .menu-toggle {
     display: none;
   }
+  .hidden {
+  display: none;
+}
+
+#navMenu.active {
+  display: block; /* or flex depending on layout */
+}
+
 
   .nav-links {
     display: flex !important;
