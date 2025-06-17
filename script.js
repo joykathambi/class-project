@@ -1,42 +1,37 @@
+// MENU TOGGLE
 const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
+const navMenu = document.getElementById('navMenu');
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// AUTO-SCROLL FOR PARTNER LOGOS
+const slider = document.getElementById('partnersSlider');
+
+let scrollPosition = 0;
+
+function autoScrollLogos() {
+  if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+    scrollPosition = 0;
+  } else {
+    scrollPosition += 1;
   }
+  slider.scrollLeft = scrollPosition;
+}
 
-  
-  const slider = document.getElementById('partnersSlider');
-  if (slider) {
-    let scrollPosition = 0;
+setInterval(autoScrollLogos, 20); // Adjust speed as needed
 
-    function autoScrollLogos() {
-      if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-        scrollPosition = 0;
-      } else {
-        scrollPosition += 3;
-      }
-      slider.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      });
+// FAQ TOGGLE FUNCTIONALITY
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach((question) => {
+  question.addEventListener('click', () => {
+    const answer = question.nextElementSibling;
+    if (answer.style.display === 'block') {
+      answer.style.display = 'none';
+    } else {
+      answer.style.display = 'block';
     }
-
-    setInterval(autoScrollLogos, 20);
-  }
-
-  
-  const questions = document.querySelectorAll('.faq-question');
-  if (questions.length > 0) {
-    questions.forEach(q => {
-      q.addEventListener('click', () => {
-        q.classList.toggle('active');
-        const answer = q.nextElementSibling;
-        if (answer) {
-          answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
-        }
-      });
-    });
-  }
+  });
+});
